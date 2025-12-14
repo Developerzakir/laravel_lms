@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
@@ -56,4 +57,8 @@ Route::group(["middleware"=>"auth:admin",'prefix'=>"admin","as"=>"admin."],funct
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+   //admin dashboard route  
+   Route::get('dashboard', [AdminController::class,'index'])->name('dashboard');
+
 });
