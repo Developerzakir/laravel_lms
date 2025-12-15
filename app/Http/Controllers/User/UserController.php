@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
@@ -11,6 +11,6 @@ class UserController extends Controller
 {
     public function index() : View
     {
-        return view('dashboard');
+        return view('frontend.student-dashboard.index');
     }
 }
