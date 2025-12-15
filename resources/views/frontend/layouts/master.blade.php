@@ -27,6 +27,7 @@
     <link rel=" stylesheet" href="{{asset('front/css/spacing.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
+    @vite(['resources/css/frontend.css'])
 </head>
 
 <body class="home_3">
