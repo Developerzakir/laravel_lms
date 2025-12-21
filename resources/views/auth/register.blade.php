@@ -22,16 +22,16 @@
                                 data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
                                 aria-selected="true">Student</button>
                         </li>
-                        {{-- <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">Instructor</button>
-                        </li> --}}
+                        </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab" tabindex="0">
-                            <form action="{{ route('register')}}" method="POST">
+                            <form action="{{ route('register',['type' => 'student'])}}" method="POST">
                                 @csrf
                                 <h2>Sign Up<span>!</span></h2>
                                 <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
@@ -80,7 +80,7 @@
                             </form>
                         </div>
 
-                        {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
                             <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
