@@ -82,7 +82,7 @@
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
-                            <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('register', ['type' => 'instructor']) }}"  method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <h2>Instructor Sign Up<span>!</span></h2>
                                 <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
@@ -105,11 +105,10 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
-                                        <div class="wsus__login_form_input">
+                                        <div class="wsus__login_form_input"> 
                                             <label>Document (Education/Certificate)</label>
                                             <input type="file" placeholder="Document" name="document" required>
                                             <x-input-error :messages="$errors->get('document')" class="mt-2" />
-
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
@@ -130,7 +129,6 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
-                                            
                                             <button type="submit" class="common_btn">Sign Up</button>
                                         </div>
                                     </div>

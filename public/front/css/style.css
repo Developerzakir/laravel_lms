@@ -10681,9 +10681,9 @@ footer {
     padding: 60px 50px;
 }
 
-.wsus__login_form_input {
+/* .wsus__login_form_input {
     margin-top: 20px;
-}
+} */
 
 .wsus__login_form_input label {
     color: var(--colorBlack);

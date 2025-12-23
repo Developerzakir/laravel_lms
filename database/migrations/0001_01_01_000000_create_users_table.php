@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('github')->nullable();
             $table->enum('login_as',['instructor','student'])->nullable();
+            $table->enum('approve_status',['pending','approved','rejected'])->default('pending');
+            $table->string('document')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
