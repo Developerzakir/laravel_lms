@@ -60,5 +60,6 @@ Route::group(["middleware"=>"auth:admin",'prefix'=>"admin","as"=>"admin."],funct
 
    //admin instructor request
    Route::resource('instructor-requests', InstructorRequestController::class);
+   Route::get('instructor-doc-download/{user}', [InstructorRequestController::class, 'download'])->name('instructor-doc-download');
 
 });

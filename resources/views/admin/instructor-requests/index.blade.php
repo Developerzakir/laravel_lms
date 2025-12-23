@@ -34,7 +34,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href=""
+                                            <a href="{{ route('admin.instructor-doc-download', $instructor->id) }}"
                                                 class="text-muted">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"

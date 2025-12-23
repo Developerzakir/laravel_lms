@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class InstructorRequestController extends Controller
 {
@@ -14,10 +15,18 @@ class InstructorRequestController extends Controller
      */
     public function index()
     {
-         $instructorsRequests = User::where('approve_status', 'pending')
+        $instructorsRequests = User::where('approve_status', 'pending')
             ->orWhere('approve_status', 'rejected')->get();
-        return view('admin.instructor-requests.index',compact('instructorsRequests'));
+        return view('admin.instructor-requests.index', compact('instructorsRequests'));
     }
+
+    function download(User $user)
+    {
+        return Storage::disk('public')->download(
+            ltrim($user->document, '/')
+        );
+    }
+
 
     /**
      * Show the form for creating a new resource.
