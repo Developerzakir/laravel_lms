@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\InstructorRequestRejectMail;
+use App\Mail\InstructorRequestApprovedMail;
 
 class InstructorRequestController extends Controller
 {
@@ -36,29 +39,7 @@ class InstructorRequestController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,14 +51,29 @@ class InstructorRequestController extends Controller
         $request->status == 'approved' ? $instructor_request->role = 'instructor' : "";
         $instructor_request->save();
 
+        self::sendNotification($instructor_request);
+
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+
+    public static function sendNotification($instructor_request): void
     {
-        //
+        switch ($instructor_request->approve_status) {
+            case 'approved':
+                if (config('mail_queue.is_queue')) {
+                    Mail::to($instructor_request->email)->queue(new InstructorRequestApprovedMail());
+                } else {
+                    Mail::to($instructor_request->email)->send(new InstructorRequestApprovedMail());
+                }
+                break;
+            case 'rejected':
+
+                if (config('mail_queue.is_queue')) {
+                    Mail::to($instructor_request->email)->queue(new InstructorRequestRejectMail());
+                } else {
+                    Mail::to($instructor_request->email)->send(new InstructorRequestRejectMail());
+                }
+        }
     }
 }

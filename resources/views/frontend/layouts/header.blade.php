@@ -51,7 +51,7 @@
     ============================-->
     <nav class="navbar navbar-expand-lg main_menu main_menu_3">
         <a class="navbar-brand" href="index_3.html">
-            <img src="images/logo.png" alt="EduCore" class="img-fluid">
+            <img src="{{asset('front/images/logo.png')}}" alt="EduCore" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,14 +60,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="menu_category">
                 <div class="icon">
-                    <img src="images/grid_icon.png" alt="Category" class="img-fluid">
+                    <img src="{{asset('front/images/grid_icon.png')}}" alt="Category" class="img-fluid">
                 </div>
                 Category
                 <ul>
                     <li>
                         <a href="#">
                             <span>
-                                <img src="images/menu_category_icon_1.png" alt="Category" class="img-fluid">
+                                <img src="{{asset('front/images/menu_category_icon_1.png')}}" alt="Category" class="img-fluid">
                             </span>
                             Development
                         </a>
@@ -217,13 +217,13 @@
 
             <div class="right_menu">
                 <div class="menu_search_btn">
-                    <img src="images/search_icon.png" alt="Search" class="img-fluid">
+                    <img src="{{asset('front/images/search_icon.png')}}" alt="Search" class="img-fluid">
                 </div>
                 <ul>
                     <li>
                         <a class="menu_signin" href="#">
                             <span>
-                                <img src="images/cart_icon_black.png" alt="user" class="img-fluid">
+                                <img src="{{asset('front/images/cart_icon_black.png')}}" alt="user" class="img-fluid">
                             </span>
                             <b>06</b>
                         </a>
@@ -231,7 +231,7 @@
                     <li>
                         <a class="admin" href="#">
                             <span>
-                                <img src="images/user_icon_black.png" alt="user" class="img-fluid">
+                                <img src="{{asset('front/images/user_icon_black.png')}}" alt="user" class="img-fluid">
                             </span>
                             admin
                         </a>
